@@ -63,8 +63,8 @@ function removeTodo(i) {
 }
 }
 
-var ol = document.querySelector(".todo-list");
 function removeAll(){
+  const ol = document.querySelector(".todo-list");
   while(ol.firstChild) 
   ol.removeChild(ol.firstChild);
 }
