@@ -2,22 +2,20 @@
 // Put a few todos in there to start with!
 // This is mostly to give us some data to test our functions with.
 const todos = [
-  `Be able to mark todos "done".`,
-  `Allow user interaction through the DOM`,
-  `Add dates to todos.`,
 ];
 
+
 // Now test it here just by console.logging a particular todo index.
-console.log(todos[1]);
+// console.log(todos[1]);
 
 // Next: a function that prints a todo.
 // For now, just have this function console log the value passed in!
 // (We'll expand this helper later.)
 function printTodo(str) {
-  let ul = document.querySelector('ul');
+  let ol = document.querySelector('ol');
   let li = document.createElement('li');
   li.innerText = str;
-  ul.appendChild(li);
+  ol.appendChild(li);
 }
 // function printTodo(str) {
 //   document.querySelector(".todo-list").appendChild(document.createElement('li').innerText = str);
@@ -59,14 +57,16 @@ function addTodo(todo) {
 
 // // Now write a function that removes an item at a given index from our todo list.
 function removeTodo(i) {
-  todos.splice(i, 1);
+  if (i=== 0){
+
+  } else {todos.splice((i-1), 1);
+}
 }
 
+var ol = document.querySelector(".todo-list");
 function removeAll(){
-  let list = document.querySelector('.todo-list');
-  if (list.hasChildNodes()) {
-    list.empty();
-  }
+  while(ol.firstChild) 
+  ol.removeChild(ol.firstChild);
 }
 
 const clearAndReplace = function(){
@@ -90,13 +90,31 @@ const clearAndReplace = function(){
 // printList();
 
 
-// let add = document.querySelector('.add-todo');
+const addButton = document.querySelector(".add-todo");
+const removeButton = document.querySelector(".remove-todo");
 
-// add.addEventListener('click', addStuff)
+const reset1 = function() {    
+  document.querySelector(".todo-input").value = ""
+}
 
+const reset2 = function() {    
+  document.querySelector(".index-input").value = ""
+}
 
-// const addStuff = function(){
-//   stuffWritten = document.querySelector("todo-input").value;
-//   addTodo(stuffWritten);
+const addStuff = function(){
+  let stuffWritten = document.querySelector(".todo-input").value;
+  addTodo(stuffWritten);
+  printTodo(stuffWritten)
+  reset1();
+  }
 
-// }
+addButton.addEventListener('click', addStuff);
+
+const removeStuff = function(){
+  let indexWritten = document.querySelector(".index-input").value;
+  removeTodo(indexWritten)
+  clearAndReplace()
+  reset2()
+};
+
+removeButton.addEventListener('click', removeStuff);
