@@ -14,8 +14,8 @@ console.log(todos[1]);
 // For now, just have this function console log the value passed in!
 // (We'll expand this helper later.)
 function printTodo(str) {
- let ul = document.querySelector("#shit");
-  let li = document.createElement('li')
+  let ul = document.querySelector('ul');
+  let li = document.createElement('li');
   li.innerText = str;
   ul.appendChild(li);
 }
@@ -41,23 +41,23 @@ function printList() {
   }
 }
 
-//Now test it out by calling your print-everything function. It should print out each item from your todo list array.
-printList();
+// //Now test it out by calling your print-everything function. It should print out each item from your todo list array.
+// printList();
 
 
-// Now please write a function that adds an item to our todo list.
-// Could add it anywhere! We'll talk about where it should be added eventually.
+// // Now please write a function that adds an item to our todo list.
+// // Could add it anywhere! We'll talk about where it should be added eventually.
 function addTodo(todo) {
   todos.push(todo);
 }
 
-// Test the above function by calling it with a value,
-// then calling your print-everything function and making sure it's in there.
-addTodo('make more todo apps');
-printList();
+// // Test the above function by calling it with a value,
+// // then calling your print-everything function and making sure it's in there.
+// addTodo('make more todo apps');
+// printList();
 
 
-// Now write a function that removes an item at a given index from our todo list.
+// // Now write a function that removes an item at a given index from our todo list.
 function removeTodo(i) {
   todos.splice(i, 1);
 }
@@ -74,31 +74,29 @@ const clearAndReplace = function(){
   printList()
 }
 
-// Test the above function by passing it an index, then calling our print-everything
-// function to see if the correct thing was removed.
-removeTodo(0);
-printList();
+// // Test the above function by passing it an index, then calling our print-everything
+// // function to see if the correct thing was removed.
 
 
-// Lastly: write a function that clears all items from our array.
-function clearAll() {
-  todos.splice(0);
-}
+// // Lastly: write a function that clears all items from our array.
+// function clearAll() {
+//   todos.splice(0);
+// }
 
-// Test it by calling it and then passing your todos to console log.
-// It should be an empty array now!
-clearAll();
-console.log(todos);
-printList();
-
-
-let add = document.querySelector('.add-todo');
-
-add.addEventListener('click', addStuff)
+// // Test it by calling it and then passing your todos to console log.
+// // It should be an empty array now!
+// clearAll();
+// console.log(todos);
+// printList();
 
 
-const addStuff = function(){
-  stuffWritten = document.querySelector("todo-input").value;
-  addTodo(stuffWritten);
+// let add = document.querySelector('.add-todo');
 
-}
+// add.addEventListener('click', addStuff)
+
+
+// const addStuff = function(){
+//   stuffWritten = document.querySelector("todo-input").value;
+//   addTodo(stuffWritten);
+
+// }
